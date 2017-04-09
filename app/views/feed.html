@@ -1,0 +1,116 @@
+<div class="row">
+	<!-- Welcome bloc -->
+	<div id="bloc-welcome" class="col-md-6 col-md-offset-3">
+		<div class="actions-welcome">
+			<p class="welcome center">Hello {{userinfos.userfirstname}} ! La communauté t'écoute.</p>
+			<div class="actions-welcome clearfix">
+				<div class="action-welcome col-sm-4 center">
+					<a href="#">
+						<i class="fa fa-flag" aria-hidden="true"></i>Besoin d'aide !
+					</a>
+				</div>
+				<div class="action-welcome col-sm-4 center">
+					<a href="#">
+						<i class="fa fa-comment" aria-hidden="true"></i>Partager un truc intéressant
+					</a>
+				</div>
+				<div class="action-welcome col-sm-4 center">
+					<a href="#" ng-click="deconnexion();">
+						<i class="fa fa-sign-out" aria-hidden="true"></i>Se déconnecter
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Welcome bloc -->
+
+	<!-- Loading bloc -->
+	<div class="loader col-md-6 col-md-offset-3" ng-show="loadingfeed">
+		<img src="img/loader.gif" title="Chargement en cours..." alt="Chargement en cours"/>
+		<p>Patience {{userinfos.userfirstname}}, ton flux d'actualités est en cours de construction</p>
+	</div>
+	<!-- /Loading bloc -->
+
+	<!-- Error bloc -->
+	<div class="error-bloc col-md-6 col-md-offset-3" ng-show="errorfeed">
+		<i class="fa fa-times" aria-hidden="true"></i>
+		<p>Une erreur est survenue lors du chargement de votre flux d'activité</p>
+	</div>
+	<!-- /Error bloc -->
+
+	<!-- Publication bloc -->
+	<div id="bloc-publication" class="col-md-6 col-md-offset-3" ng-repeat="publication in publications">
+		<div class="head-publication">
+			<div class="tagimg-publication">
+				<a href="#">
+					<img src="http://fakeimg.pl/40x40/" title="tagimg" alt=tagimg />
+				</a>
+			</div>
+			<div class="authorpicture-publication">
+				<a href="#">
+					<img src="{{publication.publication.profile.avatar || 'img/default-profile.png'}}" title="tagimg" alt=tagimg />
+				</a>
+			</div>
+			<div class="author-publication">
+				<a href="#">{{publication.publication.poster.displayName}}</a> <span class="date-publication">- il y a 12 jours</span>
+				<span class="authorjob-publication">{{publication.publication.profile.title}}</span>
+			</div>
+		</div>
+		<div class="tags-publication">
+			<a class="tag" href="#" ng-repeat="tag in publication.publication.tags">#{{tag.name}}</a>
+		</div>
+		<div class="content-publication">
+			<p>{{publication.publication.content}}</p>
+		</div>
+		<div class="actions-publication clearfix">
+			<div class="action-publication col-sm-6 center">
+				<a href="#">
+					<i class="fa fa-plus" aria-hidden="true"></i>Envoyer un Thanx !
+				</a>
+			</div>
+			<div class="action-publication col-sm-6 center">
+				<a href="#">
+					<i class="fa fa-share" aria-hidden="true"></i> Partager à un ami !
+				</a>
+			</div>
+		</div>
+		<div class="comments-publication">
+			<div class="head-comments">
+				<span class="count-comments">{{publication.publication.comments.length}} commentaire</span> - 0 Thanx
+			</div>
+			<div class="list-comments">
+				<!-- Comment -->
+				<div class="comment" ng-repeat="comment in publication.publication.comments">
+					<div class="head-comment">
+						<div class="authorpicture-comment">
+							<a href="#">
+								<img src="http://fakeimg.pl/30x30/" title="tagimg" alt=tagimg />
+							</a>
+						</div>
+						<div class="author-comment">
+							<a href="#">Serge Koutan</a>
+						</div>
+					</div>
+					<div class="content-comment">
+						<p>Quisque id suscipit quam. Maecenas ultricies leo erat, hendrerit imperdiet ipsum ornare quis. Aenean ac nisl nec turpis ultricies placerat. Etiam fermentum ultricies elit, non vehicula enim porta eget</p>
+					</div>
+					<div class="detail-comment">
+					il y a un jour - 0 Thanx - <a href="#" class="thanx-comment">Thanx</a> - <a href="#" class="delete-comment">Supprimer</a>
+					</div>
+				</div>
+				<!-- /Comment -->
+			</div>
+			<div class="add-comment">
+				<form>
+					<div class="form-group">
+						<textarea class="form-control noscroll autogrow" name="add-comment" placeholder="Ajouter un commentaire..."></textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="footer-publication">
+			Tu vois ceci car Serge Koutouan est ami avec Jérome Martin
+		</div>
+	</div>
+	<!-- /Publication bloc -->
+</div>

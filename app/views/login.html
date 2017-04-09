@@ -1,0 +1,23 @@
+<!-- Login form bloc -->
+<div class="row">
+	<div id="bloc-login" class="col-md-4 col-md-offset-4">
+		<form name="formlogin" ng-submit="formlogin.$valid && sendFormlogin(formlogin)">
+			<p id="intro-login"><i class="fa fa-info-circle" aria-hidden="true"></i>Pour vous connecter merci d'utiliser l'adresse email <strong>decouverte@wizbii.com</strong> et le mot de passe <strong>decouvertewizbii</strong></p>
+			<div class="form-group">
+				<label for="login-username">Adresse email</label>
+				<input type="email" class="form-control" id="login-username" name="login-username" ng-model="data.username" required>
+			</div>
+			<div class="form-group">
+				<label for="login-password">Mot de passe</label>
+				<input type="password" class="form-control" id="login-password" name="login-password" ng-model="data.password" required>
+			</div>
+			<center>
+				<button type="submit" class="btn btn-default" ng-disabled="formlogin.$invalid">Se connecter</button>
+			</center>
+			<p class="error" ng-show="erreurconnexion">
+				Une erreur est survenue lors de la connexion, merci de vérifier votre adresse email et votre mot de passe avant de réessayer.
+			</p>
+		</form>
+	</div>
+</div>
+<!-- /Login form bloc -->

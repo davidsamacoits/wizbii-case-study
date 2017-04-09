@@ -1,0 +1,423 @@
+// 
+// Wizbii case study
+// -----------------
+//
+// Default stylesheet
+//
+//
+
+// Reset
+@import "compass/reset";
+// Compass & CSS3 utilities
+@import "compass/css3";
+@import "compass/utilities";
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
+// Variables
+@import "variables";
+
+
+// Main style
+//
+html, body {
+	background: $color-bg;
+	font-family: 'Roboto', sans-serif;
+	color: $color-font-default;
+	padding: 10px 0;
+	font-size: $size-font-default;
+}
+h1 {
+	font-size: $size-font-h1;
+	margin: 12px 0;
+}
+h2 {
+	font-size: $size-font-h2;
+	margin: 10px 0;
+}
+h3 {
+	font-size: $size-font-h3;
+	margin: 8px 0;
+}
+p {
+	margin: 10px 0;
+	line-height: 20px;
+}
+strong {
+	font-weight: 600;
+}
+a {
+	color: inherit;
+
+	&:hover, &:focus, &:active {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+img {
+	border: none;
+    vertical-align: middle;
+}
+.fa {
+	margin-right: 5px;
+}
+.error, .delete {
+	color: $color-font-error;
+}
+.center {
+	text-align: center;
+}
+.noscroll {
+	overflow: hidden;
+}
+
+// Colors
+//
+.blue {
+	color: $color-font-blue;
+}
+
+// Form
+//
+form {
+	label {
+		margin: 2px 0 8px 0;
+	}
+	input, textarea {
+		background: $color-bg !important;
+		border: none !important;
+		box-shadow: none !important;
+		border: 1px solid $color-bg !important;
+		@include single-transition(border-color, 0.2s, ease-in);
+
+		&:focus {
+			border-color: $color-darkbg !important;
+		}
+	}
+	textarea {
+		resize: vertical;
+	}
+}
+
+// Buttons
+//
+.btn {
+	border: none;
+	text-shadow: none;
+	color: $color-button-bluetext;
+	background: $color-button-blue;
+	@include single-transition(background, 0.2s, ease-in);
+	@include border-radius($radius-default);
+
+	&:hover, &:focus, &:active {
+		background: $color-button-bluehover;
+		color: $color-button-bluetext;
+	}
+}
+
+// Loader and error bloc
+//
+.loader {
+	text-align: center;
+	font-weight: 600;
+	padding: 20px 0;
+}
+.error-bloc {
+	text-align: center;
+	font-weight: 600;
+	padding: 20px 0;
+	
+	.fa {
+		font-size: 40px;
+		color: $color-font-error;
+		display: block;
+	}
+}
+
+// Bloc login
+//
+#bloc-login {
+	@include border-radius($radius-default);
+	background-color: $color-bloc;
+	padding: 15px 20px;
+	@include box-shadow($color-blocshadow 0px 2px 0px);
+	margin-top: 25px;
+
+	#intro-login {
+		font-style: italic;
+		margin-bottom: 16px;
+	}
+}
+
+// Animations
+//
+.view-frame.ng-enter {
+	-moz-animation: $duration-animation fadeIn;
+	-o-animation: $duration-animation fadeIn;
+	-webkit-animation: $duration-animation fadeIn;
+	animation: $duration-animation fadeIn;
+}
+
+// Bloc welcome
+//
+#bloc-welcome {
+	margin-bottom: $gutter-bloc;
+	@include border-radius($radius-default);
+	background-color: $color-bloc;
+	padding: 10px 20px;
+	@include box-shadow($color-blocshadow 0px 2px 0px);
+
+	.welcome {
+		color: $color-font-blue;
+		font-weight: bolder;
+	}
+	.actions-welcome {
+		.action-welcome {
+			margin: 5px 0 15px 0;
+
+			a {
+				display: block;
+				padding: 10px 0;
+				color: $color-font-lightgrey;
+				@include single-transition(color, 0.2s, ease-in);
+
+				.fa {
+				    font-size: 25px;
+				    @include single-transition(border, 0.2s, ease-in);
+				    display: block;
+				    margin-bottom: 15px;
+				}
+
+				&:hover, &:focus, &:active {
+					color: $color-font-blue;
+					.fa {
+						border-color: $color-font-blue;
+					}
+				}
+				
+			}
+		}
+	}
+}
+
+// Bloc publication
+//
+#bloc-publication {
+
+	margin-top: $gutter-bloc;
+	margin-bottom: $gutter-bloc;
+	@include border-radius($radius-default);
+	background-color: $color-bloc;
+	padding: 10px 20px;
+	@include box-shadow($color-blocshadow 0px 2px 0px);
+
+	&:first-child {
+		margin-top: 0px;
+	}
+	&:last-child {
+		margin-bottom: 0px;
+	}
+
+	// Head publication
+	.head-publication {
+		margin: 12px 0;
+		display: table;
+		width: 100%;
+
+		.author-publication {
+			line-height: 18px;
+			display: table-cell;
+			vertical-align: middle;
+
+			a {
+				color: $color-font-blue;
+				font-weight: bolder;
+				@include single-transition(color, 0.2s, ease-in);
+
+				&:hover, &:focus, &:active {
+					color: $color-font-bluehover;
+				}
+			}
+			.date-publication {
+				color: $color-font-lightgrey;
+			}
+			.authorjob-publication {
+				display: block;
+				color: $color-font-lightgrey;
+			}
+		}
+
+		.tagimg-publication, .authorpicture-publication {
+			display: table-cell;
+			height: 40px;
+			width: 40px;
+			padding-right: 10px;
+			img {
+				width: 40px;
+				height: 40px;
+			}
+			a {
+				@include opaque;
+				@include single-transition(opacity, 0.2s, ease-in);
+
+				&:hover {
+					@include opacity(0.75);
+				}
+				img {
+					vertical-align: middle;
+					@include border-radius(100%);
+				}
+			}
+			
+		}
+	}
+
+	// Tags publication
+	.tags-publication {
+		line-height: 20px;
+
+		a.tag {
+			color: $color-font-boldgrey;
+			font-weight: bolder;
+			display: inline-block;
+			margin-right: 5px;
+			@include single-transition(color, 0.2s, ease-in);
+
+			&:hover, &:focus, &:active {
+				color: $color-font-blue;
+			}
+		}
+	}
+
+	// Content publication
+	.content-publication {
+		a {
+			color: $color-font-boldgrey;
+			font-weight: bolder;
+			@include single-transition(color, 0.2s, ease-in);
+
+			&:hover, &:focus, &:active {
+				color: $color-font-blue;
+			}
+		}
+	}
+
+	// Actions publication
+	.actions-publication {
+		.action-publication {
+			margin: 5px 0 15px 0;
+
+			a {
+				display: block;
+				padding: 10px 0;
+				color: $color-font-lightgrey;
+				@include single-transition(color, 0.2s, ease-in);
+
+				.fa {
+					@include border-radius(100%);
+					width: 28px;
+				    height: 28px;
+				    border: 2px solid $color-font-lightgrey;
+				    font-size: 15px;
+				    padding: 5px;
+				    @include single-transition(border, 0.2s, ease-in);
+				}
+
+				&:hover, &:focus, &:active {
+					color: $color-font-blue;
+					.fa {
+						border-color: $color-font-blue;
+					}
+				}
+				
+			}
+		}
+	}
+
+	// Comments publication
+	.comments-publication {
+		.head-comments {
+			color: $color-font-lightgrey;
+			border-bottom: 1px solid $color-font-lightergrey;
+			padding: 2px 0 5px 0;
+			margin-bottom: 10px;
+
+			.count-comments {
+				color: $color-font-blue;
+			}
+		}
+		.list-comments {
+			.comment {
+				margin-top: 5px;
+				margin-bottom: 15px;
+
+				.head-comment{
+					display: table;
+
+					.authorpicture-comment {
+						display: table-cell;
+						padding-right: 10px;
+						height: 30px;
+						width: 30px;
+
+						img {
+							width: 30px;
+							height: 30px;
+						}
+
+						a {
+							@include opaque;
+							@include single-transition(opacity, 0.2s, ease-in);
+
+							&:hover {
+								@include opacity(0.75);
+							}
+							img {
+								vertical-align: middle;
+								@include border-radius(100%);
+							}
+						}
+					}
+					.author-comment {
+						display: table-cell;
+						line-height: 30px;
+
+						a {
+							color: $color-font-blue;
+							font-weight: bolder;
+							@include single-transition(color, 0.2s, ease-in);
+
+							&:hover, &:focus, &:active {
+								color: $color-font-bluehover;
+							}
+						}
+					}
+				}
+				.detail-comment {
+					color: $color-font-lightgrey;
+
+					a.thanx-comment {
+						@include single-transition(color, 0.2s, ease-in);
+
+						&:hover {
+							color: $color-font-blue;
+						}
+					}
+					a.delete-comment {
+						@include single-transition(color, 0.2s, ease-in);
+						
+						&:hover {
+							color: $color-font-danger;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Footer publication
+	.footer-publication {
+		text-align: center;
+		font-weight: bold;
+		color: $color-font-lightgrey;
+	}
+}
