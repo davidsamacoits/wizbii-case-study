@@ -16,7 +16,7 @@ Fonctionnalités implémentées
 * Indicateur d'activité lors du chargement du flux d'actualités
 * Gestion des erreurs liées à l'accès à l'API (erreur lors de la récupération du token ou du flux d'actualités)
 
-[Wiizbii Case Study screens]: http://img15.hostingpics.net/pics/307722wizbiicasestudy.jpg "Wiizbii Case Study screens" 
+![Wiizbii Case Study screens](http://img15.hostingpics.net/pics/307722wizbiicasestudy.jpg)
 
 *Développements et tests réalisé sur serveur local via WAMP* 
 
